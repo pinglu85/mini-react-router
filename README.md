@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+A simplified version of React Router based on the article [Build a react-router clone from scratch](https://dev.to/thomascullen/build-a-react-router-clone-from-scratch-38dp?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

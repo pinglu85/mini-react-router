@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Router, Switch, Route, Link, withRouter } from './miniReactRouter';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/posts/:id">
+          <Post />
+        </Route>
+        <Route path="/">
+          <Posts />
+        </Route>
+      </Switch>
+    </Router>
   );
-}
+};
+
+const Posts = () => (
+  <div>
+    <h4>Posts</h4>
+    <ul>
+      <li>
+        <Link to="/posts/1">Post One</Link>
+      </li>
+      <li>
+        <Link to="/posts/2">Post Two</Link>
+      </li>
+    </ul>
+  </div>
+);
+
+const PostBase = ({ params }) => (
+  <div>
+    <h4>Post {params.id}</h4>
+    <Link to="/">Back to all posts</Link>
+  </div>
+);
+
+const Post = withRouter(PostBase);
 
 export default App;
